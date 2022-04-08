@@ -20,7 +20,7 @@ public class GradeCondition {
         System.out.print("Music Grade (0-100): ");
         music = input.nextInt();
 
-        if (math > 0 && math <= 100) {
+        if (math > 0 && music <= 100) {
             mean += math;
             divideTo++;
         }
