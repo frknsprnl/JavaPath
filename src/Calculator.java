@@ -32,6 +32,9 @@ public class Calculator {
             case 4 :
                 System.out.print("Division Result: " + (a / b));
             break;
+
+            default:
+                System.out.println("You've picked the wrong operation number.");
         }
     }
 }
