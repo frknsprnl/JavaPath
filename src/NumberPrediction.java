@@ -11,7 +11,7 @@ public class NumberPrediction {
         int right = 5;
         int prediction;
         String again;
-        int [] wrong = new int[5];
+        int[] wrong = new int[5];
         boolean isWin = false;
         boolean isWrong = false;
 
@@ -19,34 +19,38 @@ public class NumberPrediction {
         System.out.println(right + " hakka sahipsiniz. Baslayalim!");
         //System.out.println("Sayi: " + randomNumber);
 
-        while (right > 0 && right <= 5){
+        while (right > 0 && right <= 5) {
             System.out.print("Tahmininizi giriniz: ");
             prediction = inp.nextInt();
 
-            if (prediction == randomNumber){
-                System.out.println("Tebrikler! Dogru sayiyi buldunuz.");
-                System.out.println("Sayi: " + randomNumber + " idi.");
-                break;
-            }
-
-            if (prediction != randomNumber){
-                System.out.println("Yanlis tahmin!");
-                right--;
-                System.out.println("Kalan hakkiniz: " + right);
-            }
-
-            if (right == 0){
-                System.out.println("Hakkiniz kalmadi. :(");
-                System.out.println("Tekrar oynamak ister misiniz? yes / no");
-                again = inp.next();
-                if (again.equals("yes")){
-                    System.out.println("=== Yeni oyun ===");
-                    randomNumber = rnd.nextInt(100);
-                    right = 5;
-                } else {
-                    System.out.println("Bizimle oynadiginiz icin tesekkurler, yine bekleriz.");
+            if (prediction >= 0 && prediction <= 100) {
+                if (prediction == randomNumber) {
+                    System.out.println("Tebrikler! Dogru sayiyi buldunuz.");
+                    System.out.println("Sayi: " + randomNumber + " idi.");
                     break;
                 }
+
+                if (prediction != randomNumber) {
+                    System.out.println("Yanlis tahmin!");
+                    right--;
+                    System.out.println("Kalan hakkiniz: " + right);
+                }
+
+                if (right == 0) {
+                    System.out.println("Hakkiniz kalmadi. :(");
+                    System.out.println("Tekrar oynamak ister misiniz? yes / no");
+                    again = inp.next();
+                    if (again.equals("yes")) {
+                        System.out.println("=== Yeni oyun ===");
+                        randomNumber = rnd.nextInt(100);
+                        right = 5;
+                    } else {
+                        System.out.println("Bizimle oynadiginiz icin tesekkurler, yine bekleriz.");
+                        break;
+                    }
+                }
+            } else {
+                System.out.println("Girdiginiz deger 0-100 araliginda olmalidir.");
             }
         }
 
